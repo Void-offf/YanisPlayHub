@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Proposer un site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#111827;color:white;padding:50px;text-align:center;}
+input,button,select{padding:10px;margin:10px;border-radius:8px;border:none;font-size:16px;}
+input,select{width:250px;}
+button{background:#ffeb3b;color:#111;font-weight:bold;cursor:pointer;transition:.3s;}
+button:hover{background:#ffd600;}
+</style>
+</head>
+<body>
+<h1>Proposer un site de jeu 🎮</h1>
+<p>Les administrateurs valideront avant publication</p>
+
+<form id="proposalForm">
+<input type="text" id="name" placeholder="Nom du site" required><br>
+<input type="url" id="url" placeholder="Lien du site" required><br>
+<select id="icon">
+  <option value="sports_esports">Manette</option>
+  <option value="flash_on">Éclair</option>
+  <option value="videogame_asset">Console</option>
+  <option value="calculate">Calcul</option>
+  <option value="public">Globe</option>
+  <option value="shield">Bouclier</option>
+</select><br>
+<button type="submit">Soumettre</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+document.getElementById('proposalForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const url = document.getElementById('url').value;
+  const icon = document.getElementById('icon').value;
+
+  // Sauvegarde simulée → on ajoute à proposals.json manuellement pour GitHub Pages
+  const proposal = {name,url,icon};
+  console.log("Nouvelle proposition :", proposal);
+
+  document.getElementById('message').textContent = "Merci ! Votre proposition a été reçue ✅";
+  this.reset();
+});
+</script>
+</body>
+</html>
