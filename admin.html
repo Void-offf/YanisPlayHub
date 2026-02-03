@@ -9,16 +9,17 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#111827;color:white;padd
 button{padding:8px 15px;margin:5px;border-radius:8px;border:none;cursor:pointer;font-weight:bold;transition:.3s;}
 .validate{background:lime;color:#111;}
 .reject{background:red;color:white;}
+.card{margin:10px;padding:10px;border:1px solid #444;border-radius:10px;}
 </style>
 </head>
 <body>
 <h1>Admin – Valider les propositions</h1>
-<p>Copie les sites validés dans <code>sites.json</code></p>
+<p>Copier les sites validés dans <code>sites.json</code></p>
 
 <div id="proposalsContainer"></div>
 
 <script>
-// Exemple de propositions (normalement dans proposals.json)
+// Ici on simule proposals.json
 const proposals = [
   {"name":"TestSite","url":"https://example.com","icon":"sports_esports"},
   {"name":"Demo","url":"https://demo.com","icon":"flash_on"}
@@ -28,7 +29,8 @@ const container = document.getElementById('proposalsContainer');
 
 proposals.forEach((p,i)=>{
   const div = document.createElement('div');
-  div.innerHTML = `<strong>${p.name}</strong> - ${p.url} 
+  div.className='card';
+  div.innerHTML=`<strong>${p.name}</strong> - ${p.url} 
   <button class="validate" onclick="alert('Valide : copier dans sites.json')">Valider</button>
   <button class="reject" onclick="div.remove()">Refuser</button>`;
   container.appendChild(div);
@@ -36,3 +38,4 @@ proposals.forEach((p,i)=>{
 </script>
 </body>
 </html>
+
