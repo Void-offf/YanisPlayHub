@@ -17,23 +17,17 @@ header p{opacity:.85;font-size:1.1em;}
 .card .material-icons{font-size:48px;color:#ffeb3b;}
 .title{margin-top:12px;font-size:1em;font-weight:600;text-align:center;}
 footer{text-align:center;padding:20px;font-size:14px;opacity:.7;}
-button{margin-top:30px;padding:10px 20px;border:none;border-radius:10px;background:#ffeb3b;color:#111;font-weight:bold;cursor:pointer;transition:.3s;}
-button:hover{background:#ffd600;}
 </style>
 </head>
 <body>
+
 <header>
 <h1>🎮 Hub de Jeux</h1>
-<p>Icônes rondes et modernes • Clique & joue 🚀</p>
+<p>Ajoute facilement des jeux en éditant sites.json</p>
 </header>
 
 <div class="container" id="gameContainer">
-  <!-- Les jeux validés seront chargés ici -->
-</div>
-
-<div style="text-align:center">
-  <button onclick="window.location.href='proposer.html'">Proposer un site</button>
-  <button onclick="window.location.href='admin.html'">Admin</button>
+  <!-- Les jeux seront générés ici -->
 </div>
 
 <footer>
@@ -41,7 +35,7 @@ button:hover{background:#ffd600;}
 </footer>
 
 <script>
-// Charge automatiquement les sites validés depuis sites.json
+// Charger les jeux depuis sites.json
 fetch('sites.json')
   .then(res => res.json())
   .then(data => {
@@ -54,8 +48,8 @@ fetch('sites.json')
       container.appendChild(div);
     });
   })
-  .catch(err => console.error("Erreur chargement sites:",err));
+  .catch(err => console.error("Erreur chargement sites:", err));
 </script>
+
 </body>
 </html>
-
