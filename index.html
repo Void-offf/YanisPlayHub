@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>🎮 Hub de Jeux</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;min-height:100vh;}
+header{text-align:center;padding:50px 20px 20px;}
+header h1{font-size:2.5em;margin-bottom:10px;}
+header p{opacity:.85;font-size:1.1em;}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:25px;padding:40px;max-width:1000px;margin:auto;}
+.card{display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#1f2937,#111827);border-radius:50%;width:110px;height:110px;margin:auto;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 20px rgba(0,0,0,.4);}
+.card:hover{transform:scale(1.15);box-shadow:0 15px 30px rgba(0,0,0,.6);}
+.card .material-icons{font-size:48px;color:#ffeb3b;}
+.title{margin-top:12px;font-size:1em;font-weight:600;text-align:center;}
+footer{text-align:center;padding:20px;font-size:14px;opacity:.7;}
+button{margin-top:30px;padding:10px 20px;border:none;border-radius:10px;background:#ffeb3b;color:#111;font-weight:bold;cursor:pointer;transition:.3s;}
+button:hover{background:#ffd600;}
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 Hub de Jeux</h1>
+<p>Icônes rondes et modernes • Clique & joue 🚀</p>
+</header>
+
+<div class="container" id="gameContainer">
+  <!-- Les jeux validés seront chargés ici -->
+</div>
+
+<div style="text-align:center">
+  <button onclick="window.location.href='proposer.html'">Proposer un site</button>
+  <button onclick="window.location.href='admin.html'">Admin</button>
+</div>
+
+<footer>
+<p>✨ Design moderne & rond • GitHub Pages</p>
+</footer>
+
+<script>
+// Charger les sites validés depuis JSON
+fetch('sites.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('gameContainer');
+    data.forEach(site => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.onclick = () => window.open(site.url,'_blank');
+      div.innerHTML = `<span class="material-icons">${site.icon}</span><div class="title">${site.name}</div>`;
+      container.appendChild(div);
+    });
+  });
+</script>
+</body>
+</html>
