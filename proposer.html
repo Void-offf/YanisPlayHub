@@ -39,9 +39,10 @@ document.getElementById('proposalForm').addEventListener('submit', function(e){
   const url = document.getElementById('url').value;
   const icon = document.getElementById('icon').value;
 
-  // Sauvegarde simulée → on ajoute à proposals.json manuellement pour GitHub Pages
   const proposal = {name,url,icon};
-  console.log("Nouvelle proposition :", proposal);
+
+  // Ici on simule l'envoi → sur GitHub Pages tu peux récupérer via proposals.json
+  console.log("Nouvelle proposition:",proposal);
 
   document.getElementById('message').textContent = "Merci ! Votre proposition a été reçue ✅";
   this.reset();
@@ -49,3 +50,4 @@ document.getElementById('proposalForm').addEventListener('submit', function(e){
 </script>
 </body>
 </html>
+
