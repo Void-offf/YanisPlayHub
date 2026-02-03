@@ -1,6 +1,17 @@
 [
-  {"name":"Poki","url":"https://www.poki.com/fr","icon":"sports_esports"},
-  {"name":"CrazyGames","url":"https://www.crazygames.com/fr","icon":"flash_on"},
-  {"name":"Miniclip","url":"https://www.miniclip.com/games/fr/","icon":"videogame_asset"}
-  {"name":"TestSite","url":"https://example.com","icon":"sports_esports"}
+  {
+    "name": "Poki",
+    "url": "https://www.poki.com/fr",
+    "icon": "sports_esports"
+  },
+  {
+    "name": "CrazyGames",
+    "url": "https://www.crazygames.com/fr",
+    "icon": "flash_on"
+  },
+  {
+    "name": "Miniclip",
+    "url": "https://www.miniclip.com/games/fr/",
+    "icon": "videogame_asset"
+  }
 ]
